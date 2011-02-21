@@ -53,7 +53,7 @@ def main():
 def run(directory, move_twin_files, dry_run):
     files = []
     for extension in JPEG_EXTENSIONS:
-        file_glob = "%s*.%s" % (os.path.join(directory, '*'), extension)
+        file_glob = "%s.%s" % (os.path.join(directory, '*'), extension)
         files.extend(glob.glob(file_glob))
     files.sort()
     for f in files:
