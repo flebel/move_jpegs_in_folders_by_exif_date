@@ -75,11 +75,11 @@ def run(directory, move_twin_files, dry_run):
                 print '[dry-run]', directory_msg,
             print 'Done.'
         file_name = os.path.basename(os.path.join(date_directory_path, f))
+        moved_file_path = os.path.join(date_directory_path, file_name)
         # Move the photo into the directory
-        moving_msg = "Moving file '%s' into '%s'..." % (file_name, date_directory_path)
+        moving_msg = '%s -> %s ...' % (file_name, moved_file_path)
         if not dry_run:
             print moving_msg,
-            moved_file_path = os.path.join(date_directory_path, file_name)
             shutil.move(f, moved_file_path)
         else:
             print '[dry-run]', moving_msg,
@@ -96,10 +96,10 @@ def run(directory, move_twin_files, dry_run):
                 twin_files.remove(f)
             for tf in twin_files:
                 twin_file_name = os.path.basename(os.path.join(date_directory_path, tf))
-                twin_moving_msg = "Moving file '%s' into '%s'..." % (twin_file_name, date_directory_path)
+                twin_moved_file_path = os.path.join(date_directory_path, twin_file_name)
+                twin_moving_msg = '%s -> %s ...' % (twin_file_name, twin_moved_file_path)
                 if not dry_run:
                     print twin_moving_msg,
-                    twin_moved_file_path = os.path.join(date_directory_path, twin_file_name)
                     shutil.move(tf, twin_moved_file_path)
                 else:
                     print '[dry-run]', twin_moving_msg,
