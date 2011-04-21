@@ -37,13 +37,15 @@ EXIF_DATE_KEY = 'Exif.Image.DateTime'
 JPEG_EXTENSIONS = ('JPG', 'JPEG')
 
 def main():
-    parser = OptionParser(usage='Usage: %prog path_to_directory')
+    parser = OptionParser(usage='Usage: %prog [OPTIONS] PATH')
     parser.add_option('--move-twin-files', action='store_true', default=True, dest='move_twin_files', help="also move the files that are prefixed by the JPEG's filename without its extension, ie. IMG_0001.JPG and IMG_0001.CR2")
     parser.add_option('--dry-run', action='store_true', default=False, dest='dry_run', help='display the actions that will be undertaken without actually executing them')
     (options, args) = parser.parse_args()
+    # Use the current directory if none has been specified
     if len(args) != 1:
-        parser.error("the files' directory must be supplied as the only positional argument.")
-    directory = args[0]
+        directory = os.getcwdu()
+    else:
+        directory = args[0]
     if not os.path.isdir(directory):
         parser.error("the files' directory specified is invalid.")
     # Get the absolute path and normalize its case
