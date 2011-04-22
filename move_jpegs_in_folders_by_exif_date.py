@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 #   Copyright (C) 2011 Francois Lebel <francoislebel@gmail.com>
 #   http://github.com/flebel/move_jpegs_in_folders_by_exif_date
 #
@@ -65,7 +64,7 @@ def run(directory, move_twin_files, dry_run):
         if EXIF_DATE_KEY not in metadata.exif_keys:
             continue
         date = metadata[EXIF_DATE_KEY].value
-        date_directory_name = "%d-%d-%d" % (date.year, date.month, date.day)
+        date_directory_name = "%d-%02d-%02d" % (date.year, date.month, date.day)
         # Create the directory
         date_directory_path = os.path.join(directory, date_directory_name)
         if not os.path.exists(date_directory_path):
