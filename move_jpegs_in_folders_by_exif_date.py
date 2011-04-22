@@ -33,7 +33,7 @@ import pyexiv2
 import shutil
 
 EXIF_DATE_KEY = 'Exif.Image.DateTime'
-JPEG_EXTENSIONS = ('JPG', 'JPEG')
+JPEG_EXTENSIONS = ('[jJ][pP][gG]', '[jJ][pP][eE][gG]') # JPG and JPEG
 
 def main():
     parser = OptionParser(usage='Usage: %prog [OPTIONS] PATH')
