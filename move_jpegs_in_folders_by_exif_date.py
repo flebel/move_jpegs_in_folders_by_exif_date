@@ -33,7 +33,9 @@ import pyexiv2
 import shutil
 
 EXIF_DATE_KEY = 'Exif.Image.DateTime'
-JPEG_EXTENSIONS = ('[jJ][pP][gG]', '[jJ][pP][eE][gG]') # JPG and JPEG
+# Look for files with a 'JPG' or 'JPEG' extension (case insensitive.)
+# Note that glob does not support regular expressions, hence the duplication.
+JPEG_EXTENSIONS = ('[jJ][pP][gG]', '[jJ][pP][eE][gG]')
 
 def main():
     parser = OptionParser(usage='Usage: %prog [OPTIONS] PATH')
