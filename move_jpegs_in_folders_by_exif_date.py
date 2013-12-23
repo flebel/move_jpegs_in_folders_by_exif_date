@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
-from optparse import OptionParser
 import glob
 import os
-import pyexiv2
 import shutil
+from optparse import OptionParser
+
+import pyexiv2
 
 EXIF_DATE_KEY = 'Exif.Image.DateTime'
 # Look for files with a 'JPG' or 'JPEG' extension (case insensitive.)
